@@ -5,7 +5,7 @@ CREATE TABLE earthquakes (
   longitude float,
   quakeDepth float,
   magnitude float,
-  seismicNet char,
+  seismicNet text,
   place text,
-  quakeType char
+  quakeType text
 );
