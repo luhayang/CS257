@@ -1,13 +1,13 @@
 DROP TABLE IF EXISTS states;
 CREATE TABLE states {
-  state char,
-  abbreviation char
+  state text,
+  abbreviation text
 };
 
 DROP TABLE IF EXISTS cities;
 CREATE TABLE cities {
-  city char,
-  state char,
+  city text,
+  state text,
   population int,
   lat double,
   lon double
