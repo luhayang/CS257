@@ -28,7 +28,7 @@ def create_table():
 	cur = conn.cursor()
 
 	sql_table1 = """DROP TABLE IF EXISTS states; CREATE TABLE states (state text,abbreviation text);"""
-	sql_table2 = """DROP TABLE IF EXISTS cities;CREATE TABLE cities (city text,state text,population int,lat double,lon double);"""
+	sql_table2 = """DROP TABLE IF EXISTS cities;CREATE TABLE cities (city text,state text,population int,lat float,lon float);"""
 
 	cur.execute(sql_table1)
 	cur.execute(sql_table2)
