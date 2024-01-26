@@ -1,24 +1,47 @@
 import psycopg2
 
+# This function tests to make sure that you can connect to the database
 def test_connection():
-	
-conn = psycopg2.connect("yangl4")
-cur = conn.cursor()
-cur.execute("SELECT * FROM cities")
-cur.execute("SELECT * FROM states")
-conn.commit()
+	conn = psycopg2.connect(
+		host="localhost",
+		port=5432,
+		database="yangl4",
+		user="yangl4",
+		password="stars929bond")
+	if conn is not Done:
+		print("Connection Worked!")
+	else:
+		print("Problem with Connection")
+	return None
 
-DROP TABLE IF EXISTS states;
+# This function creates table
+def create_table():
+	conn = psycopg2.connect(
+		host="localhost",
+		port=5432,
+		database="yangl4",
+		user="yangl4",
+		password="stars929bond")
+	
+	cur = conn.cursor()
+
+	sql_table1 = "DROP TABLE IF EXISTS states;
 CREATE TABLE states (
   state text,
   abbreviation text
-);
-
-DROP TABLE IF EXISTS cities;
+);"
+	sql_table2 = "DROP TABLE IF EXISTS cities;
 CREATE TABLE cities (
   city text,
   state text,
   population int,
   lat double,
   lon double
-);
+);"
+
+	cur.execute(sql_table1)
+	cur.execute(sql_table2)
+
+	return None
+
+conn.commit()
