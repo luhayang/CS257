@@ -44,4 +44,5 @@ CREATE TABLE cities (
 
 	return None
 
-conn.commit()
+test_connection()
+create_table()
