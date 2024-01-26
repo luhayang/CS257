@@ -12,6 +12,8 @@ def test_connection():
 		print("Connection Worked!")
 	else:
 		print("Problem with Connection")
+
+	conn.commit()
 	return None
 
 # This function creates table
@@ -25,23 +27,13 @@ def create_table():
 	
 	cur = conn.cursor()
 
-	sql_table1 = "DROP TABLE IF EXISTS states;
-CREATE TABLE states (
-  state text,
-  abbreviation text
-);"
-	sql_table2 = "DROP TABLE IF EXISTS cities;
-CREATE TABLE cities (
-  city text,
-  state text,
-  population int,
-  lat double,
-  lon double
-);"
+	sql_table1 = """DROP TABLE IF EXISTS states; CREATE TABLE states (state text,abbreviation text);"""
+	sql_table2 = """DROP TABLE IF EXISTS cities;CREATE TABLE cities (city text,state text,population int,lat double,lon double);"""
 
 	cur.execute(sql_table1)
 	cur.execute(sql_table2)
 
+	conn.commit()
 	return None
 
 test_connection()
