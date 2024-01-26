@@ -8,7 +8,7 @@ def test_connection():
 		database="yangl4",
 		user="yangl4",
 		password="stars929bond")
-	if conn is not Done:
+	if conn is not None:
 		print("Connection Worked!")
 	else:
 		print("Problem with Connection")
