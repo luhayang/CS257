@@ -9,7 +9,7 @@ def test_connection():
 		user="yangl4",
 		password="stars929bond")
 	if conn is not None:
-		print("Connection Worked!")
+		print("Con3nection Worked!")
 	else:
 		print("Problem with Connection")
 
