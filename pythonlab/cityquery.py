@@ -15,6 +15,7 @@ def test_connection():
 		print("Problem with Connection")
 
 	conn.commit()
+	conn.close()
 	return None
 
 test_connection()
@@ -45,7 +46,9 @@ def test_query_one():
 	print("Northfield is not in the database.")
 
 	conn.commit()
-    
+	conn.close()
+
 	return None
 
-
+test_connection()
+test_query_one()
