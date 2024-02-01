@@ -32,7 +32,7 @@ def test_query_one():
 	
 	cur = conn.cursor()
 
-	sql1 = """SELECT city, lat, long FROM states WHERE city = 'Northfield'"""
+	sql1 = """SELECT city, lat, long FROM states WHERE city = 'Northfield';"""
     
 	cur.execute( sql1 )
 
