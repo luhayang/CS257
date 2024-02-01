@@ -23,31 +23,29 @@ test_connection()
 def test_query_one():
 
 	conn = psycopg2.connect(
-	        host="localhost",
-	        port=5432,
-	        database="yangl4",
-	        user="yangl4",
-	        password="stars929bond")
-
-    	cur = conn.cursor()
-
-    	sql1 = "SELECT city, lat, long FROM states WHERE city = 'Northfield'"
-    
-    	cur.execute( sql1 )
-
-    	# fetchall() returns a list containing all rows that matches your query    
-    	row_list = cur.fetchall()
+	    host="localhost",
+	    port=5432,
+	    database="yangl4",
+	    user="yangl4",
+	    password="stars929bond")
 	
-    	for row in row_list:
-        	if row[1] == "Northfield":
-        		print("Northfield's latitude is {} and longitude is {}.".format( row[2], ro2[3])) 
-			break
-	print("Northfield is not in the database."
+	cur = conn.cursor()
 
-
-
-    	conn.commit()
+	sql1 = """SELECT city, lat, long FROM states WHERE city = 'Northfield'"""
     
-    	return None
+	cur.execute( sql1 )
+
+    # fetchall() returns a list containing all rows that matches your query    
+	row_list = cur.fetchall()
+	
+	for row in row_list:
+		if row[1] == "Northfield":
+			print("Northfield's latitude is {} and longitude is {}.".format( row[2], row[3])) 
+			break
+	print("Northfield is not in the database.")
+
+	conn.commit()
+    
+	return None
 
 
