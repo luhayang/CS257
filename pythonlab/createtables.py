@@ -1,6 +1,5 @@
 import psycopg2
 
-# This function tests to make sure that you can connect to the database
 def test_connection():
 	conn = psycopg2.connect(
 		host="localhost",
