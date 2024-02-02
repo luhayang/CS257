@@ -56,14 +56,14 @@ def execute_queries():
 	print("{} is the city with the smallest population.".format( cur.fetchone()[0] ))
 
 	# Query 4 prints names of the cities that is furthest North, East, South, or West
-	sql4 = """SELECT city, lat, lon FROM cities ORDER BY %s;"""
+	sql4 = """SELECT city, lat, lon FROM cities ORDER BY {};"""
 
 	north = 'lat'
 	east = 'lon'
 	south = 'lat DESC'
 	west = 'lon DESC'
 
-	cur.execute( sql4, [north] )
+	cur.execute( sql4.format(north) )
 	print("{} is the city that is furthest North.".format( cur.fetchone()[0] ))
 
 	cur.execute( sql4, [east] )
