@@ -76,15 +76,17 @@ def execute_queries():
 	print("{} is the city that is furthest West.".format( cur.fetchone()[0] ))
 
 	# Query 5 gets State name as input and prints the total population of all cities in the state.
-	state  = input("Enter the name of state, full or abbreviation: ").upper()
+	state  = input("Enter the name of state, full or abbreviation: ")
+	state = state[0].upper() + state[1:].lower()
 	total_pop = 0
 
 	if len(state) == 2:
-		sql5 = """SELECT state, abb FROM states WHERE abb.upper = %s;"""
+		state = state.upper()
+		sql5 = """SELECT state, abb FROM states WHERE abb = %s;"""
 		cur.execute( sql5, [state.upper()] )
 		state = cur.fetchone()[0]
 
-	sql5 = """SELECT state, pop FROM cities WHERE state.upper() = %s;"""
+	sql5 = """SELECT state, pop FROM cities WHERE state = %s;"""
 	cur.execute( sql5, [state])
 
 	row_list = cur.fetchall()
