@@ -66,13 +66,13 @@ def execute_queries():
 	cur.execute( sql4.format(north) )
 	print("{} is the city that is furthest North.".format( cur.fetchone()[0] ))
 
-	cur.execute( sql4, [east] )
+	cur.execute( sql4.format(east) )
 	print("{} is the city that is furthest East.".format( cur.fetchone()[0] ))
 
-	cur.execute( sql4, [south] )
+	cur.execute( sql4.format(south) )
 	print("{} is the city that is furthest South.".format( cur.fetchone()[0] ))
 
-	cur.execute( sql4, [west] )
+	cur.execute( sql4.format(west) )
 	print("{} is the city that is furthest West.".format( cur.fetchone()[0] ))
 
 	# Query 5 gets State name as input and prints the total population of all cities in the state.
