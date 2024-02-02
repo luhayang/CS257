@@ -53,7 +53,7 @@ def execute_queries():
 	sql3 = """SELECT city, state FROM cities WHERE state = 'Minnesota' ORDER BY pop DESC;"""
 	cur.execute( sql3 )
 
-	print("{} is the city with the smallest population.".format( cur.fetchone()[0] ))
+	print("{} is the city with the smallest population in Minnesota.".format( cur.fetchone()[0] ))
 
 	# Query 4 prints names of the cities that is furthest North, East, South, or West
 	sql4 = """SELECT city, lat, lon FROM cities ORDER BY {};"""
