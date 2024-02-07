@@ -26,7 +26,7 @@ def create_table():
 	
 	cur = conn.cursor()
 
-	sql_table = """DROP TABLE IF EXISTS populations; CREATE TABLE states (code text, state text, pop int);"""
+	sql_table = """DROP TABLE IF EXISTS populations; CREATE TABLE populations (code text, state text, pop int);"""
 
 	cur.execute(sql_table)
 
