@@ -34,7 +34,7 @@ def execute_query():
 	# This query creates a view that shows top 10 cities that make up the largest proportion in their state population
 	create_view = """DROP VIEW IF EXISTS pop_proportion; 
 		CREATE VIEW pop_proportion 
-		AS SELECT cities.city AS city, populations.state AS state, populations.code AS code, 
+		AS SELECT cities.city AS city, populations.code AS code, 
 		populations.pop AS state_pop, cities.pop AS city_pop, 
 		(CAST(cities.pop AS REAL) / CAST(populations.pop AS REAL)) AS proportion 
 		FROM populations JOIN cities ON populations.state = cities.state;"""
