@@ -23,8 +23,8 @@ def my_add(num1, num2):
 	the_string = "The sum of " + num1 + " and " + num2 + " is " + str(the_sum) + ".";
 	return the_string
 	
-@app.route('/area/<abbrev>')
-def my_area(abbrev):
+@app.route('/pop/<abbrev>')
+def my_pop(abbrev):
 	conn = psycopg2.connec(host="localhost", port = 5432, database="yangl4", user="yangl4", password="stars929bond")
 	cur = conn.cursor()
 	sql = """SELECT * FROM populations WHERE code = abbrev;"""
