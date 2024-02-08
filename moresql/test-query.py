@@ -49,7 +49,7 @@ cur.execute(sql)
 
 row_list = cur.fetchall()
 
-print("Following cities make up the largest proportion of their state population:)
+print("Following cities make up the largest proportion of their state population:")
 for row in row_list:
 	print("{}, {} makes up {:.2f}% of population in state {}.".format(row[0], row[2], round(row[5], 2)*100, row[1])) 
 
