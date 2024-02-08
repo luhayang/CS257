@@ -39,7 +39,7 @@ def execute_query():
 		(CAST(cities.pop AS REAL) / CAST(populations.pop AS REAL)) AS proportion 
 		FROM populations JOIN cities ON populations.state = cities.state;"""
 
-	sql = """SELECT * FROM pop_proportion ORDER BY proportion LIMIT 10;"""
+	sql = """SELECT * FROM pop_proportion ORDER BY proportion DESC LIMIT 10;"""
 
 	cur.execute(create_view)
 	cur.execute(sql)
