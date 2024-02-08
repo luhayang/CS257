@@ -46,7 +46,7 @@ def execute_query():
 
 	print("Top 10 cities that make up the largest proportion of their state population are:")
 	for row in row_list:
-		print("{}, {} makes up {:.2f}%.".format(row[0], row[1], round(row[4], 2)*100)) 
+		print("{}, {} makes up {:.2f}%.".format(row[0], row[1], round(row[4]*100, 2))) 
 
 	conn.commit()
 	cur.close()
