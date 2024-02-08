@@ -19,8 +19,6 @@ def test_connection():
 	conn.close()
 	return None
 
-test_connection()
-
 # This function sends a SQL query to the database
 def execute_query():
   
@@ -39,8 +37,7 @@ def execute_query():
 		AS SELECT cities.city AS city, populations.state AS state, populations.code AS code, 
 		populations.pop AS state_pop, cities.pop AS city_pop, 
 		(CAST(cities.pop AS REAL) / CAST(populations.pop AS REAL)) AS proportion 
-		FROM populations JOIN cities 
-		ON populations.state = cities.state;"""
+		FROM populations JOIN cities ON populations.state = cities.state;"""
 
 	sql = """SELECT * FROM pop_proportion ORDER BY proportion LIMIT 10;"""
 
@@ -51,7 +48,7 @@ def execute_query():
 
 	print("Following cities make up the largest proportion of their state population:")
 	for row in row_list:
-		print("{}, {} makes up {:.2f}% of population in state {}.".format(row[0], row[2], round(row[5], 2)*100, row[1])) 
+		print("{}, {} makes up {:.2f}%.".format(row[0], row[2], round(row[5], 2)*100)) 
 
 	conn.commit()
 	cur.close()
