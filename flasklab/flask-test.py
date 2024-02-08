@@ -23,14 +23,14 @@ def my_add(num1, num2):
 	the_string = "The sum of " + num1 + " and " + num2 + " is " + str(the_sum) + ".";
 	return the_string
 	
-@app.route('/area/<abbrev>')
-def my_area(abbrev):
-	conn = psycopg2.connec(host="localhost", port = 5432, database="yangl4", user="yangl4", password="stars929bond")
+@app.route('/pop/<abbrev>')
+def my_pop(abbrev):
+	conn = psycopg2.connect(host="localhost", port = 5432, database="yangl4", user="yangl4", password="stars929bond")
 	cur = conn.cursor()
-	sql = """SELECT * FROM populations WHERE code = abbrev;"""
-	cur.execute(sql)
+	sql = """SELECT * FROM populations WHERE code = %s;"""
+	cur.execute(sql, [abbrev])
 	row = cur.fetchone()
-	the_string = "The population of " + row[1] + " state is " + row[2] + ".";
+	the_string = "The population of " + row[1] + " state is " + str(row[2]) + ".";
 	
 	conn.commit()
 	cur.close()
