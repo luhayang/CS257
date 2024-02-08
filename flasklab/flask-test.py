@@ -25,7 +25,7 @@ def my_add(num1, num2):
 	
 @app.route('/pop/<abbrev>')
 def my_pop(abbrev):
-	conn = psycopg2.connec(host="localhost", port = 5432, database="yangl4", user="yangl4", password="stars929bond")
+	conn = psycopg2.connect(host="localhost", port = 5432, database="yangl4", user="yangl4", password="stars929bond")
 	cur = conn.cursor()
 	sql = """SELECT * FROM populations WHERE code = abbrev;"""
 	cur.execute(sql)
