@@ -37,8 +37,8 @@ def execute_query():
 	create_view = """DROP VIEW IF EXISTS pop_proportion; 
 		CREATE VIEW pop_proportion 
 		AS SELECT cities.city AS city, populations.state AS state, populations.code AS code, 
-		CAST(populations.pop AS REAL) AS state_pop, CAST(cities.pop AS REAL) AS city_pop, 
-		(city_pop / state_pop) AS proportion 
+		populations.pop AS state_pop, cities.pop AS city_pop, 
+		(CAST(cities.pop AS REAL) AS city_pop / CAST(populations.pop AS REAL)) AS proportion 
 		FROM populations JOIN cities 
 		ON populations.state = cities.state;"""
 
