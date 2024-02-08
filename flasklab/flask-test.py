@@ -38,7 +38,6 @@ def my_area(abbrev):
 	
 	return the_string
 
-def get_area(
 if __name__ == '__main__':
 	my_port = 5137
 	app.run(host='0.0.0.0', port = my_port)
