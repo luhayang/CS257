@@ -31,10 +31,10 @@ def execute_query():
 		user="yangl4",
 		password="stars929bond")
 
-cur = conn.cursor()
+	cur = conn.cursor()
 
-# This query creates a view that shows top 10 cities that make up the largest proportion in their state population
-create_view = """DROP VIEW IF EXISTS pop_proportion; 
+	# This query creates a view that shows top 10 cities that make up the largest proportion in their state population
+	create_view = """DROP VIEW IF EXISTS pop_proportion; 
 		CREATE VIEW pop_proportion 
 		AS SELECT cities.city AS city, populations.state AS state, populations.code AS code, 
 		CAST(populations.population AS REAL) AS state_pop, CAST(cities.pop AS REAL) AS city_pop, 
@@ -42,19 +42,21 @@ create_view = """DROP VIEW IF EXISTS pop_proportion;
 		FROM populations JOIN cities 
 		ON populations.state = cities.state;"""
 
-sql = """SELECT * FROM pop_proportion ORDER BY proportion LIMIT 10;"""
+	sql = """SELECT * FROM pop_proportion ORDER BY proportion LIMIT 10;"""
 
-cur.execute(create_view)
-cur.execute(sql)
+	cur.execute(create_view)
+	cur.execute(sql)
 
-row_list = cur.fetchall()
+	row_list = cur.fetchall()
 
-print("Following cities make up the largest proportion of their state population:")
-for row in row_list:
-	print("{}, {} makes up {:.2f}% of population in state {}.".format(row[0], row[2], round(row[5], 2)*100, row[1])) 
+	print("Following cities make up the largest proportion of their state population:")
+	for row in row_list:
+		print("{}, {} makes up {:.2f}% of population in state {}.".format(row[0], row[2], round(row[5], 2)*100, row[1])) 
 
-conn.commit()
-cur.close()
-conn.close()
-return None
-  
+	conn.commit()
+	cur.close()
+	conn.close()
+	return None
+
+test_connection()
+execute_query()
