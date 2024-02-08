@@ -30,7 +30,7 @@ def my_pop(abbrev):
 	sql = """SELECT * FROM populations WHERE code = %s;"""
 	cur.execute(sql, [abbrev])
 	row = cur.fetchone()
-	the_string = "The population of " + row[1] + " state is " + row[2] + ".";
+	the_string = "The population of " + row[1] + " state is " + str(row[2]) + ".";
 	
 	conn.commit()
 	cur.close()
