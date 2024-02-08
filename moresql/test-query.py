@@ -34,15 +34,19 @@ def execute_query():
 cur = conn.cursor()
 
 # This query creates a view that shows top 10 cities that make up the largest proportion in their state population
-sql = """CREATE VIEW pop_proportion 
+create_view = """DROP VIEW IF EXISTS pop_proportion; 
+		CREATE VIEW pop_proportion 
 		AS SELECT cities.city AS city, populations.state AS state, populations.code AS code, 
 		CAST(populations.population AS REAL) AS state_pop, CAST(cities.pop AS REAL) AS city_pop, 
 		(city_pop / state_pop) AS proportion 
 		FROM populations JOIN cities 
-		ON populations.state = cities.state 
-		ORDER BY proportion LIMIT 10;"""
+		ON populations.state = cities.state;"""
 
+sql = """SELECT * FROM pop_proportion ORDER BY proportion LIMIT 10;"""
+
+cur.execute(create_view)
 cur.execute(sql)
+
 row_list = cur.fetchall()
 
 print("Following cities make up the largest proportion of their state population:)
