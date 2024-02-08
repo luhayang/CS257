@@ -27,8 +27,8 @@ def my_add(num1, num2):
 def my_pop(abbrev):
 	conn = psycopg2.connect(host="localhost", port = 5432, database="yangl4", user="yangl4", password="stars929bond")
 	cur = conn.cursor()
-	sql = """SELECT * FROM populations WHERE code = abbrev;"""
-	cur.execute(sql)
+	sql = """SELECT * FROM populations WHERE code = %s;"""
+	cur.execute(sql, [abbrev])
 	row = cur.fetchone()
 	the_string = "The population of " + row[1] + " state is " + row[2] + ".";
 	
