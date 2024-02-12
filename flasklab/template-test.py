@@ -29,8 +29,7 @@ def randCity():
     adj = random.randint(0, len(adjectives))
     year = random.randint(1900, 2025)
     the_string = "{} the {} was born in {} in {}".format(names[name], adjectives[adj], my_city(), year)
-    return render_template("random-city.html")
-
+    return render_template("random-city.html", random_city = the_string)
 
 def my_city():
     conn = psycopg2.connect(host="localhost", port = 5432, database="yangl4", user="yangl4", password="stars929bond")
