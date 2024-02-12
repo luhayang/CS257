@@ -25,9 +25,9 @@ adjectives = ['Aggressive', 'Rebel', 'Elite', 'Various', 'Keen', 'Hypnotic', 'Sa
 
 @app.route('/randCity')
 def randCity():
-    name = random.randint(0, len(names))
-    adj = random.randint(0, len(adjectives))
-    year = random.randint(1900, 2025)
+    name = random.randint(0, len(names)-1)
+    adj = random.randint(0, len(adjectives)-1)
+    year = random.randint(1900, 2024)
     the_string = "{} the {} was born in {} in {}".format(names[name], adjectives[adj], my_city(), year)
     return render_template("random-city.html", random_city = the_string)
 
@@ -40,7 +40,7 @@ def my_city():
     cur.execute(sql)
 
     cities = cur.fetchall()
-    city = random.randint(0, len(cities))
+    city = random.randint(0, len(cities)-1)
 
     conn.commit()
     cur.close()
