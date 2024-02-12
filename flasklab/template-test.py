@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
 import random
+import psycopg2
 
 app = Flask(__name__)
 
@@ -17,6 +18,36 @@ def rand(low, high):
     
     num = random.randint(low_int, high_int)
     return render_template("random.html", randNum = num)
+
+
+names = ['Alice', 'Alberto', 'Adeline', 'Chance', 'Tariq', 'Enrique', 'Karlie', 'Tatyana', 'Nicole', 'Elaine', 'Raul', 'Khalid', 'Annemarie']
+adjectives = ['Aggressive', 'Rebel', 'Elite', 'Various', 'Keen', 'Hypnotic', 'Sable', 'Marked', 'Known', 'Scarce', 'Average', 'Wise', 'Brave']
+
+@app.route('/randCity')
+def randCity():
+    name = random.randint(0, len(names))
+    adj = random.randint(0, len(adjectives))
+    year = random.randint(1900, 2025)
+    the_string = "{} the {} was born in {} in {}".format(names[name], adjectives[adj], my_city(), year)
+    return render_template("random-city.html")
+
+
+def my_city():
+    conn = psycopg2.connect(host="localhost", port = 5432, database="yangl4", user="yangl4", password="stars929bond")
+    
+    cur = conn.cursor()
+    sql = """SELECT city FROM cities;"""
+
+    cur.execute(sql)
+
+    cities = cur.fetchall()
+    city = random.randint(0, len(cities))
+
+    conn.commit()
+    cur.close()
+    conn.close()
+	
+    return cities[city]
 
 if __name__ == '__main__':
     my_port = 5137
