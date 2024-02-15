@@ -9,6 +9,10 @@ app = Flask(__name__)
 def welcome():
     return render_template("index.html")
 
+@app.route('/rand')
+def load_rand():
+    return render_template("index.html")
+
 @app.route('/rand/<low>/<high>')
 def rand(low, high):
     #Input values that come from a URL (i.e., @app.route)
@@ -18,8 +22,6 @@ def rand(low, high):
     
     num = random.randint(low_int, high_int)
     return render_template("random.html", randNum = num)
-
-
 
 names = ['Alice', 'Alberto', 'Adeline', 'Chance', 'Tariq', 'Enrique', 'Karlie', 'Tatyana', 'Nicole', 'Elaine', 'Raul', 'Khalid', 'Annemarie']
 adjectives = ['Aggressive', 'Rebel', 'Elite', 'Various', 'Keen', 'Hypnotic', 'Sable', 'Marked', 'Known', 'Scarce', 'Average', 'Wise', 'Brave']
