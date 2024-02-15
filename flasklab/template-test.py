@@ -19,11 +19,10 @@ def rand(low, high):
     num = random.randint(low_int, high_int)
     return render_template("random.html", randNum = num)
 
-
 names = ['Alice', 'Alberto', 'Adeline', 'Chance', 'Tariq', 'Enrique', 'Karlie', 'Tatyana', 'Nicole', 'Elaine', 'Raul', 'Khalid', 'Annemarie']
 adjectives = ['Aggressive', 'Rebel', 'Elite', 'Various', 'Keen', 'Hypnotic', 'Sable', 'Marked', 'Known', 'Scarce', 'Average', 'Wise', 'Brave']
 
-@app.route('/randCity')
+@app.route('/randCity/result')
 def randCity():
     name = random.randint(0, len(names)-1)
     adj = random.randint(0, len(adjectives)-1)
