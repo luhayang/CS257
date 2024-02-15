@@ -40,7 +40,7 @@ def my_city():
 
     cities = cur.fetchall()
     idx = random.randint(0, len(cities)-1)
-    city = ''+cities[idx]
+    city = ''+cities[idx][0]
 
     conn.commit()
     cur.close()
