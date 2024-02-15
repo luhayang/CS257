@@ -39,13 +39,16 @@ def my_city():
     cur.execute(sql)
 
     cities = cur.fetchall()
-    city = random.randint(0, len(cities)-1)
+    idx = random.randint(0, len(cities)-1)
+    city = cities[idx].replace("('", "")
+    city = cities[idx].replace("',)", "")
+    city = cities[idx].replace("')'", "")
 
     conn.commit()
     cur.close()
     conn.close()
 	
-    return cities[city]
+    return city
 
 if __name__ == '__main__':
     my_port = 5137
