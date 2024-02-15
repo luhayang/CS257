@@ -26,14 +26,13 @@ adjectives = ['Aggressive', 'Rebel', 'Elite', 'Various', 'Keen', 'Hypnotic', 'Sa
 def load_randCity():
     return render_template("random-city.html")
 
-
 @app.route('/randCity/result')
 def randCity():
     name = random.randint(0, len(names)-1)
     adj = random.randint(0, len(adjectives)-1)
     year = random.randint(1900, 2024)
     the_string = "{} the {} was born in {} in {}".format(names[name], adjectives[adj], my_city(), year)
-    return render_template("random-city.html", random_city = the_string)
+    return render_template("random-city-result.html", random_city = the_string)
 
 def my_city():
     conn = psycopg2.connect(host="localhost", port = 5432, database="yangl4", user="yangl4", password="stars929bond")
