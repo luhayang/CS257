@@ -1,13 +1,14 @@
-from flask import Flask
+from flask import Flask, render_template, request, redirect, url_for
 from flask import render_template
 import random
 import psycopg2
 
-app = Flask(__name__)
+app = Flask(__name__,
+            template_folder='templates')
 
 @app.route('/')
 def welcome():
-    return render_template("index.html")
+    return app.send_static_file("index.html")
 
 @app.route('/rand/<low>/<high>')
 def rand(low, high):
