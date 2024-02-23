@@ -9,6 +9,8 @@
 }
 
 .another-class{
+    text-align: center;
+    margin-top: 30px;
     background-color: black;
     color: white;
 }
@@ -28,7 +30,7 @@
 
 .color-box{
     background-color: orange;
-    width: 500px;
+    width: 1000px;
     height: 500px;
 }
 
