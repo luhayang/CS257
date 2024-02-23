@@ -5,7 +5,7 @@ the_heading.onclick = function(){ the_heading.innerText="Goodbye World!"};
 the_paragraph = document.getElementById("paragraph1");
 
 the_paragraph.onmouseenter = function() { 
-	the_paragraph.style.color = "blue";
+  the_paragraph.style.color = "blue";
   the_paragraph.style.backgroundColor = "white";
 };
 
