@@ -1,3 +1,3 @@
 function switchColor() {
-	document.getElementById("demobox").classList.toggle("switch-color");  
+	document.getElementById("hello").classList.toggle("switch-color");  
 }
