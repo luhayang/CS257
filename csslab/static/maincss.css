@@ -4,32 +4,39 @@
 }
 
 .center-para{
-text-align: center;
-margin-top: 20px;
-background-color: black;
-color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.another-class{
+    background-color: black;
+    color: white;
 }
 
 .big-button{
-font-size: large;
+    font-size: large;
 }
 
+.color-error{
+    background-color: wthite;
+    color: rgb(17, 237, 233)
+}
 .random-number{
-background-color: white;
-color: #8A6DC9;
+    background-color: white;
+    color: #8A6DC9;
 }
 
 .color-box{
-background-color: orange;
-width: 100px;
-height: 100px;
+    background-color: orange;
+    width: 100px;
+    height: 100px;
 }
 
 .switch-mode{
-background-color: green;
+    background-color: green;
 }
 
 .silly-sentence{
-background-color: white;
-color: #7895B2;
+    background-color: white;
+    color: #7895B2;
 }

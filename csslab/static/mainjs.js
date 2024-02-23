@@ -10,9 +10,13 @@ the_paragraph.onmouseenter = function() {
 };
 
 function changeColor() {
-  text_input_element = document.getElementById("user-color");
-  new_color = text_input_element.value;
-	the_heading.style.color = new_color;
+  text_input = document.getElementById("user-color").value;
+  if (text_input == ""){
+    document.getElementById('error').innerHTML = "Type the Color!"
+  } else{
+    new_color = text_input;
+    the_heading.style.color = new_color;
+  }
 }
 
 function randNum() {
