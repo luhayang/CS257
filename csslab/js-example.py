@@ -9,6 +9,11 @@ def welcome():
     message = message + " This text was produced by concatenating strings in Python!"
     return render_template("homepage.html", someText = message)
 
+@app.route('/mainpage')
+def main_page():
+    message = "Welcome to My Main Webpage!"
+    return render_template("mainpage.html", someText = message)
+
 if __name__ == '__main__':
-    my_port = 5000
+    my_port = 5137
     app.run(host='0.0.0.0', port = my_port) 

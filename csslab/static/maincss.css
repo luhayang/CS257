@@ -1,0 +1,35 @@
+.my-class{
+    text-align: center;
+    color: blue;
+}
+
+.center-para{
+text-align: center;
+margin-top: 20px;
+background-color: black;
+color: white;
+}
+
+.big-button{
+font-size: large;
+}
+
+.random-number{
+background-color: white;
+color: #8A6DC9;
+}
+
+.color-box{
+background-color: orange;
+width: 100px;
+height: 100px;
+}
+
+.switch-mode{
+background-color: green;
+}
+
+.silly-sentence{
+background-color: white;
+color: #7895B2;
+}
