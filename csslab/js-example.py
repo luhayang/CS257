@@ -11,8 +11,7 @@ def welcome():
 
 @app.route('/mainpage')
 def main_page():
-    message = "Welcome to My Main Webpage!"
-    return render_template("mainpage.html", someText = message)
+    return render_template("mainpage.html")
 
 if __name__ == '__main__':
     my_port = 5137

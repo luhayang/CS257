@@ -12,9 +12,11 @@ the_paragraph.onmouseenter = function() {
 function changeColor() {
   text_input = document.getElementById("user-color").value;
   if (text_input == ""){
+    document.getElementById("color").style.color = "black";
     the_sentence = "Type the Color!";
   } else{
     new_color = text_input;
+    document.getElementById("color").style.color = new_color;
     the_heading.style.color = new_color;
     the_sentence = "The Color is " + new_color;
   }
